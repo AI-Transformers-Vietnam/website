@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pitch It — 2-Minute Community Pitch | AI Transformers Vietnam</title>
+  <meta name="description" content="Apply for a 2-minute pitch slot at AI Transformers Vietnam events. Share your product, project, initiative, or anything interesting with 100+ builders, founders, and developers.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --midnight:  #0B1120;
+      --midnight2: #080e1c;
+      --card:      #0f1929;
+      --card2:     #131d2e;
+      --blue:      #3B82F6;
+      --cyan:      #06B6D4;
+      --orange:    #F97316;
+      --white:     #FFFFFF;
+      --slate:     #64748B;
+      --steel:     #94A3B8;
+      --light:     #CBD5E1;
+      --border:    rgba(255,255,255,0.07);
+      --grad:      linear-gradient(135deg, #3B82F6 0%, #06B6D4 100%);
+      --grad-warm: linear-gradient(135deg, #F97316 0%, #EF4444 100%);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--midnight);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .grad-text {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ─── Fade-up animation ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* ─── Nav ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(8, 14, 28, 0.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 40px; }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      color: var(--steel);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      padding: 8px 22px;
+      background: var(--grad);
+      border-radius: 7px;
+      color: var(--white) !important;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+    .nav-links .nav-pitch-active {
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    /* hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-drawer {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      background: rgba(8, 14, 28, 0.97);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px 16px;
+    }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a {
+      color: var(--steel);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .nav-drawer a:last-child { border-bottom: none; margin-top: 8px; }
+    .nav-drawer a:hover { color: var(--white); }
+    .nav-drawer .nav-cta {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: 4px;
+    }
+
+    /* ─── Container ─── */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .grad-rule {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59,130,246,0.4), rgba(6,182,212,0.4), transparent);
+      border: none;
+    }
+
+    /* ─── Hero ─── */
+    .pitch-hero {
+      position: relative;
+      padding: 80px 0 48px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .pitch-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 900px 600px at 50% -100px, rgba(249,115,22,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 400px at 80% 60%, rgba(59,130,246,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 500px 300px at 20% 80%, rgba(6,182,212,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .pitch-hero .container { position: relative; z-index: 1; }
+    .pitch-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 16px;
+      border: 1px solid rgba(249,115,22,0.4);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--orange);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .eyebrow-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.5); }
+    }
+    .pitch-hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      margin-bottom: 20px;
+    }
+    .pitch-hero-sub {
+      font-size: 17px;
+      color: var(--steel);
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0 auto 12px;
+    }
+
+    /* ─── How it works ─── */
+    .how-it-works {
+      padding: 0 0 48px;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 20px;
+      text-align: center;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .step-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(59,130,246,0.3);
+    }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--grad);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .step-card h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .step-card p {
+      font-size: 12px;
+      color: var(--slate);
+      line-height: 1.5;
+    }
+
+    /* ─── Form section ─── */
+    .pitch-form-section {
+      padding: 64px 0 88px;
+      background: var(--midnight2);
+    }
+    .pitch-form-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .pitch-form-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 20px 48px rgba(0,0,0,0.3);
+    }
+    .pitch-form-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .pitch-form-card .form-subtitle {
+      font-size: 14px;
+      color: var(--slate);
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--light);
+    }
+    .form-group label .required {
+      color: #EF4444;
+      margin-left: 2px;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--slate);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .form-group .field-hint {
+      font-size: 12px;
+      color: var(--slate);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--grad-warm);
+      border: none;
+      border-radius: 10px;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      margin-top: 8px;
+      letter-spacing: 0.3px;
+    }
+    .form-submit:hover { opacity: 0.88; transform: translateY(-2px); }
+    .form-submit:active { transform: translateY(0); }
+    .form-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+    .form-success.show { display: block; }
+    .form-success .check-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(16,185,129,0.15);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .form-success h4 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .form-success p {
+      font-size: 15px;
+      color: var(--steel);
+      line-height: 1.7;
+    }
+    .form-success .back-link {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 12px 28px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      color: var(--steel);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .form-success .back-link:hover { border-color: rgba(255,255,255,0.3); color: var(--white); }
+
+    .form-error {
+      display: none;
+      padding: 12px 16px;
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.3);
+      border-radius: 10px;
+      color: #FCA5A5;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+    .form-error.show { display: block; }
+
+    /* ─── Footer ─── */
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--slate);
+    }
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer a {
+      color: var(--slate);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--white); }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      .nav-inner { padding: 0 20px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .container { padding: 0 24px; }
+      .pitch-hero { padding: 56px 0 36px; }
+      .pitch-hero h1 { font-size: 32px; }
+      .steps-grid { grid-template-columns: 1fr; max-width: 320px; }
+      .pitch-form-card { padding: 24px; }
+      .pitch-form-section { padding: 48px 0 64px; }
+      footer .container { flex-direction: column; gap: 10px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="../" class="nav-logo">
+        <img src="../assets/brand/ai-transformers-vietnam-logo-wave-inline-fullwidth-white-monochrome-transparent-bg.svg" alt="AI Transformers Vietnam">
+      </a>
+      <ul class="nav-links">
+        <li><a href="../#events">Events</a></li>
+        <li><a href="../#gallery">Gallery</a></li>
+        <li><a href="../#community">Community</a></li>
+        <li><a href="./" class="nav-pitch-active">Pitch It</a></li>
+        <li><a href="../#community" class="nav-cta">Join the Community</a></li>
+      </ul>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-drawer" id="nav-drawer">
+      <a href="../#events">Events</a>
+      <a href="../#gallery">Gallery</a>
+      <a href="../#community">Community</a>
+      <a href="./" style="color:var(--orange);font-weight:600;">Pitch It</a>
+      <a href="../#community" class="nav-cta">Join the Community</a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="pitch-hero">
+    <div class="container">
+      <div class="fade-up">
+        <p class="pitch-hero-eyebrow">
+          <span class="eyebrow-dot"></span>
+          Pitch It
+        </p>
+        <h1>
+          <span class="grad-text">2 minutes</span> on stage<br>to share with the community
+        </h1>
+        <p class="pitch-hero-sub">
+          Building a product, project, or have something interesting to share? Apply for a 2-minute pitch slot at an upcoming AI Transformers Vietnam event — introduce to hundreds of builders, developers, and founders in the community.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="grad-rule">
+
+  <!-- ═══ HOW IT WORKS ═══ -->
+  <section class="how-it-works">
+    <div class="container">
+      <div class="steps-grid">
+        <div class="step-card fade-up">
+          <div class="step-num">1</div>
+          <h4>Fill the form</h4>
+          <p>Tell us about yourself and what you'd like to share</p>
+        </div>
+        <div class="step-card fade-up" style="transition-delay:0.1s">
+          <div class="step-num">2</div>
+          <h4>We review</h4>
+          <p>We'll review and get back to you to confirm your slot</p>
+        </div>
+        <div class="step-card fade-up" style="transition-delay:0.2s">
+          <div class="step-num">3</div>
+          <h4>Take the stage</h4>
+          <p>2 minutes to shine in front of the community 🚀</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="grad-rule">
+
+  <!-- ═══ FORM ═══ -->
+  <section class="pitch-form-section" id="pitch-form">
+    <div class="container">
+      <div class="pitch-form-wrapper">
+        <div class="pitch-form-card fade-up">
+          <h3>🎤 Apply to Pitch</h3>
+          <p class="form-subtitle">Just a few quick questions so we know who you are and what you'll share.</p>
+
+          <div class="form-error" id="form-error"></div>
+
+          <form id="pitch-form-el" novalidate>
+            <div class="form-group">
+              <label for="name">Full name <span class="required">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Your full name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email <span class="required">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone number <span class="required">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="0901234567" required>
+              <p class="field-hint">So we can reach you to confirm.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="company">Company / Organization <span class="required">*</span></label>
+              <input type="text" id="company" name="company" placeholder="Your startup, company, or org" required>
+            </div>
+
+            <div class="form-group">
+              <label for="website">Website <span class="required">*</span></label>
+              <input type="text" id="website" name="website" placeholder="https://your-website.com" required>
+              <p class="field-hint">Your product or company website.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="social">Facebook / LinkedIn <span class="required">*</span></label>
+              <input type="text" id="social" name="social" placeholder="https://facebook.com/yourprofile or linkedin.com/in/you" required>
+              <p class="field-hint">Your personal or company social profile.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="pitch_topic">What will you share? <span class="required">*</span></label>
+              <textarea id="pitch_topic" name="pitch_topic" placeholder="e.g. Demo of an AI agent for e-commerce, announcing an upcoming hackathon, looking for a co-founder for a blockchain project..." required></textarea>
+              <p class="field-hint">Briefly describe what you'll pitch in 2 minutes: a product, project, upcoming event, or anything interesting.</p>
+            </div>
+
+            <button type="submit" class="form-submit" id="submit-btn">
+              🚀 Submit pitch application
+            </button>
+          </form>
+
+          <div class="form-success" id="form-success">
+            <div class="check-icon">🎉</div>
+            <h4>Application submitted!</h4>
+            <p>
+              Thanks for applying to pitch at our next event.<br>
+              We'll review your application and get back to you soon.
+            </p>
+            <a href="../" class="back-link">← Back to home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <div>
+        <img src="../assets/brand/ai-transformers-vietnam-icon-mark-wave-favicon-brand-gradient.svg" alt="AITV" height="22" style="vertical-align:middle;margin-right:10px;opacity:0.6">
+        © 2025–2026 AI Transformers Vietnam
+      </div>
+      <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+        <a href="mailto:aitransformers.vn@gmail.com">aitransformers.vn@gmail.com</a>
+        <a href="https://luma.com/ai-transformers-vietnam" target="_blank" rel="noopener">Luma</a>
+        <a href="https://zalo.me/g/ghdkbw884" target="_blank" rel="noopener">Zalo</a>
+        <a href="https://chat.whatsapp.com/LGtaHAbZJgXLZZoownNni7" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.facebook.com/aitransformers" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── Fade-up on scroll ───
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ─── Mobile nav ───
+    const hamburger = document.getElementById('nav-hamburger');
+    const drawer = document.getElementById('nav-drawer');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      drawer.classList.toggle('open');
+    });
+    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      drawer.classList.remove('open');
+    }));
+
+    // ─── Form submission ───
+    const form = document.getElementById('pitch-form-el');
+    const submitBtn = document.getElementById('submit-btn');
+    const errorBox = document.getElementById('form-error');
+    const successBox = document.getElementById('form-success');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBox.classList.remove('show');
+
+      // Validate
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const phone = form.phone.value.trim();
+      const company = form.company.value.trim();
+      const website = form.website.value.trim();
+      const social = form.social.value.trim();
+      const pitch_topic = form.pitch_topic.value.trim();
+
+      if (!name || !email || !phone || !company || !website || !social || !pitch_topic) {
+        errorBox.textContent = 'Please fill in all required fields (*)';
+        errorBox.classList.add('show');
+        return;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errorBox.textContent = 'Please enter a valid email address.';
+        errorBox.classList.add('show');
+        return;
+      }
+
+      // Submit
+      submitBtn.disabled = true;
+      submitBtn.textContent = '⏳ Submitting...';
+
+      try {
+        const res = await fetch('/api/pitch-apply', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, company, website, social, pitch_topic }),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.error || 'Something went wrong.');
+        }
+
+        // Success
+        form.style.display = 'none';
+        document.querySelector('.pitch-form-card h3').style.display = 'none';
+        document.querySelector('.form-subtitle').style.display = 'none';
+        successBox.classList.add('show');
+
+      } catch (err) {
+        errorBox.textContent = err.message || 'Something went wrong. Please try again.';
+        errorBox.classList.add('show');
+        submitBtn.disabled = false;
+        submitBtn.textContent = '🚀 Submit pitch application';
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- AI Transformers Vietnam — Wave Icon Mark / Favicon                         -->
+<!-- Use: favicon 16×16/32×32/180×180, avatar, app icon, small-format contexts -->
+<!-- Export with #0B1120 background fill for favicon use per brand guidelines   -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="wg1" x1="0" y1="78" x2="78" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1D4ED8"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="wg2" x1="0" y1="78" x2="78" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="wg3" x1="0" y1="78" x2="78" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#67E8F9"/>
+    </linearGradient>
+    <linearGradient id="aiGrad" x1="15" y1="70" x2="85" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+  <!-- Wave circle scaled to fill 100×100 viewBox (scale 1.28, centered) -->
+  <g transform="translate(2, 5) scale(1.28)">
+    <path opacity="0.84"
+      d="M28.0919 66.7993C25.2953 62.9872 20.8036 60.7956 16.0793 60.9403C4.17897 61.2985 -2.96775 47.8593 3.98518 38.1952C6.74671 34.3576 7.44156 29.4077 5.84532 24.96C1.82605 13.7545 12.4017 2.80525 23.7392 6.4312C28.2417 7.87061 33.1643 7.0011 36.9018 4.11016C46.3172 -3.17553 59.9981 3.49755 60.0529 15.4005C60.0752 20.1292 62.4236 24.5418 66.3282 27.2039C76.1663 33.905 74.0473 48.98 62.7449 52.7105C58.2552 54.192 54.7835 57.7873 53.4589 62.3274C50.1249 73.7541 35.1341 76.3965 28.0919 66.7993Z"
+      stroke="url(#wg1)" stroke-width="2.4" stroke-miterlimit="10" fill="none"/>
+    <path opacity="0.76"
+      d="M24.0528 63.816C21.9587 59.5781 17.9146 56.64 13.2381 55.9598C1.45757 54.2469 -3.24634 39.7718 5.27732 31.4623C8.66422 28.1627 10.2075 23.4091 9.40879 18.7498C7.39628 7.01647 19.7129 -1.93048 30.2484 3.60981C34.4315 5.80845 39.4293 5.80845 43.6131 3.60981C54.1511 -1.93048 66.4646 7.01647 64.4527 18.7498C63.6533 23.4091 65.1973 28.1627 68.5842 31.4623C77.1078 39.7718 72.4039 54.2469 60.6228 55.9598C55.9463 56.64 51.9028 59.5781 49.8106 63.816C44.5419 74.4918 29.3196 74.4918 24.0528 63.816Z"
+      stroke="url(#wg2)" stroke-width="2.0" stroke-miterlimit="10" fill="none"/>
+    <path opacity="1"
+      d="M20.4026 62.3249C19.078 57.7873 15.6063 54.192 11.1166 52.7105C-0.185842 48.98 -2.30481 33.905 7.53332 27.2039C11.4404 24.5418 13.7863 20.1267 13.8086 15.4004C13.8634 3.49753 27.5443 -3.17554 36.9591 4.11015C40.6972 7.00109 45.6198 7.8706 50.1223 6.43118C61.4623 2.80523 72.0354 13.7545 68.0162 24.96C66.4199 29.4102 67.1148 34.3576 69.8763 38.1952C76.8286 47.8593 69.6819 61.2985 57.7841 60.9403C53.0579 60.7956 48.5656 62.9872 45.7696 66.7993C38.7274 76.3964 23.7366 73.7516 20.4026 62.3249Z"
+      stroke="url(#wg3)" stroke-width="2.4" stroke-miterlimit="10" fill="none"/>
+  </g>
+  <!-- "AI" centered in the icon -->
+  <text x="50" y="60" text-anchor="middle"
+    font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="38" font-weight="800" letter-spacing="2" fill="url(#aiGrad)">AI</text>
+</svg>

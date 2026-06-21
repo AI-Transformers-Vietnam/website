@@ -1,0 +1,21 @@
+# Netlify config for the AI Transformers Vietnam website.
+# Netlify connects directly to this repo (the "website" repo), so leave
+# "Base directory" blank (the repo root). Paths below are relative to it.
+
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+# The pitch form (public/pitch/index.html) POSTs to /api/pitch-apply.
+# Route that to the serverless function.
+[[redirects]]
+  from = "/api/pitch-apply"
+  to = "/.netlify/functions/pitch-apply"
+  status = 200
+  force = true
+
+# Long-cache fingerprint-free static assets (safe: filenames are stable).
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
