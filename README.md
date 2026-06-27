@@ -3,12 +3,15 @@
 The website for the AI Transformers Vietnam community (aitransformersvietnam.com).
 A static site deployed on Netlify, with a serverless function for the pitch form.
 
+**Repository:** https://github.com/AI-Transformers-Vietnam/website
+
 This site is part of the AI Transformers Vietnam monorepo
 (`AI-Transformers-Vietnam/ai-transformers-vietnam`, under `sites/`) and is also
-published to its own repo (`AI-Transformers-Vietnam/website`) so it can be
-shared with outside collaborators. The two are kept in sync with git subtree
-(see the monorepo README). It stands alone: everything needed to run and deploy
-the site is in this repo.
+published to its own repo,
+[AI-Transformers-Vietnam/website](https://github.com/AI-Transformers-Vietnam/website),
+so it can be shared with outside collaborators. The two are kept in sync with
+git subtree (see the monorepo README). It stands alone: everything needed to run
+and deploy the site is in this repo.
 
 ## Structure
 
